@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eventora – Modern event discovery and registration platform. Discover conferences, workshops, music festivals, tech summits, and more.">
+  <meta name="theme-color" content="#0B0D12">
+  <title>Eventora – Discover. Experience. Connect.</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Eventora Home">
+        <div class="brand-icon">
+          <i data-lucide="sparkles"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Eventora</span>
+          <span class="brand-tagline">Discover &bull; Connect</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#featured" class="nav-link">Featured</a>
+        <a href="#explore" class="nav-link">Explore Events</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#registrations" class="nav-link nav-registrations-link">
+          <span>My Registrations</span>
+          <span id="nav-reg-count" class="nav-badge">0</span>
+        </a>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="icon-btn theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <i data-lucide="sun" class="theme-icon"></i>
+        </button>
+
+        <!-- Host an Event CTA -->
+        <button class="btn btn-ghost host-event-trigger">
+          <i data-lucide="plus-circle"></i>
+          <span>Host Event</span>
+        </button>
+
+        <!-- Primary CTA: Explore -->
+        <a href="#explore" class="btn btn-primary nav-cta">
+          <span>Explore Events</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Mobile Navigation" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+      <nav class="mobile-nav-links">
+        <a href="#hero" class="mobile-nav-link">
+          <i data-lucide="home"></i> Home
+        </a>
+        <a href="#featured" class="mobile-nav-link">
+          <i data-lucide="flame"></i> Featured Events
+        </a>
+        <a href="#explore" class="mobile-nav-link">
+          <i data-lucide="compass"></i> Explore All Events
+        </a>
+        <a href="#categories" class="mobile-nav-link">
+          <i data-lucide="grid"></i> Categories
+        </a>
+        <a href="#about" class="mobile-nav-link">
+          <i data-lucide="info"></i> About Eventora
+        </a>
+        <a href="#registrations" class="mobile-nav-link">
+          <i data-lucide="ticket"></i> My Registrations
+        </a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-outline btn-block host-event-trigger">
+          <i data-lucide="plus-circle"></i> Host an Event
+        </button>
+        <button class="btn btn-ghost btn-block theme-toggle-btn">
+          <i data-lucide="sun" class="theme-icon"></i> Switch Theme
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-ambient-glow glow-1"></div>
+      <div class="hero-ambient-glow glow-2"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Over 16+ Curated Premier Gatherings Live</span>
+          </div>
+
+          <h1 class="hero-title">
+            Discover Experiences <br>
+            <span class="gradient-text">That Matter.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Find your next unforgettable experience. Explore conferences, workshops, music festivals, technology summits, and meaningful community gatherings.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#explore" class="btn btn-primary btn-lg">
+              <i data-lucide="compass"></i>
+              <span>Explore Events</span>
+            </a>
+            <button class="btn btn-glass btn-lg host-event-trigger">
+              <i data-lucide="calendar-plus"></i>
+              <span>Host an Event</span>
+            </button>
+          </div>
+
+          <!-- Hero Metrics Bar -->
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Events Hosted</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">45K+</span>
+              <span class="stat-label">Attendees Joined</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">99.4%</span>
+              <span class="stat-label">Positive Rating</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">8</span>
+              <span class="stat-label">Categories</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <!-- Main Hero Card Preview -->
+            <div class="hero-preview-card main-card">
+              <div class="card-image-wrap">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="NextGen AI Summit">
+                <span class="preview-badge">Trending #1</span>
+              </div>
+              <div class="card-content-wrap">
+                <div class="card-tag">Technology &bull; San Francisco</div>
+                <h3 class="card-title">NextGen AI & Cloud Summit 2026</h3>
+                <div class="card-info-row">
+                  <div class="attendee-avatars">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Attendee">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Attendee">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Attendee">
+                    <span class="avatar-count">+220</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="App.openEventDetails('evt-tech-01')">
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Micro Card -->
+            <div class="hero-floating-card float-bottom">
+              <div class="float-icon">
+                <i data-lucide="flame"></i>
+              </div>
+              <div class="float-text">
+                <span class="float-title">Neon Horizon Festival</span>
+                <span class="float-sub">Only 72 tickets remaining</span>
+              </div>
+            </div>
+
+            <!-- Floating Badge Card -->
+            <div class="hero-floating-card float-top">
+              <div class="float-icon icon-success">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <div class="float-text">
+                <span class="float-title">Verified Passes</span>
+                <span class="float-sub">Instant Digital QR Ticket</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURED EVENTS SECTION -->
+    <section id="featured" class="section featured-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="header-left">
+            <span class="section-pill">
+              <i data-lucide="sparkles"></i> Handpicked Highlights
+            </span>
+            <h2 class="section-title">Featured Experiences</h2>
+            <p class="section-subtitle">
+              Top curated summits, vibrant live festivals, and high-impact masterclasses that define the season.
+            </p>
+          </div>
+          <div class="header-right">
+            <a href="#explore" class="btn btn-outline btn-sm">
+              <span>View All 16 Events</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Cards Grid -->
+        <div id="featured-events-grid" class="featured-grid">
+          <!-- Populated dynamically via App.renderFeatured() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EXPLORE ALL EVENTS SECTION -->
+    <section id="explore" class="section explore-section">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-pill">
+            <i data-lucide="compass"></i> Explore The Directory
+          </span>
+          <h2 class="section-title">Discover All Gatherings</h2>
+          <p class="section-subtitle">
+            Refine by category, dates, admission types, or search by topic, city, or organizer.
+          </p>
+        </div>
+
+        <!-- Category Pills Bar -->
+        <div id="categories" class="categories-bar-wrapper">
+          <div class="categories-label">Browse Category:</div>
+          <div id="category-chips-list" class="category-chips-container">
+            <!-- Dynamically populated from CATEGORIES -->
+          </div>
+        </div>
+
+        <!-- Search & Filter Controls Toolbar -->
+        <div class="filter-toolbar">
+          <!-- Search input -->
+          <div class="search-input-wrap">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" id="events-search-input" placeholder="Search events by title, topic, venue, city..." aria-label="Search events">
+          </div>
+
+          <!-- Select filters -->
+          <div class="filter-dropdowns-group">
+            <div class="select-wrap">
+              <label for="filter-date" class="sr-only">Date</label>
+              <select id="filter-date" aria-label="Filter by date">
+                <option value="all">Any Date</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="weekend">This Weekend</option>
+                <option value="month">This Month</option>
+              </select>
+            </div>
+
+            <div class="select-wrap">
+              <label for="filter-price" class="sr-only">Price</label>
+              <select id="filter-price" aria-label="Filter by price">
+                <option value="all">All Prices</option>
+                <option value="free">Free Admission</option>
+                <option value="paid">Paid Events</option>
+              </select>
+            </div>
+
+            <div class="select-wrap">
+              <label for="sort-events" class="sr-only">Sort by</label>
+              <select id="sort-events" aria-label="Sort events">
+                <option value="date-asc">Date: Soonest First</option>
+                <option value="date-desc">Date: Latest First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="popular">Most Popular</option>
+              </select>
+            </div>
+
+            <button id="clear-filters-btn" class="btn btn-ghost btn-sm" title="Reset all filters">
+              <i data-lucide="rotate-ccw"></i>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Results Info -->
+        <div class="results-meta-bar">
+          <span id="results-count-text" class="results-count">Showing 16 events</span>
+        </div>
+
+        <!-- Events Grid Target -->
+        <div id="events-grid" class="events-grid">
+          <!-- Dynamically populated via App.renderEvents() -->
+        </div>
+
+        <!-- Empty State (No Search Results) -->
+        <div id="events-empty-state" class="empty-state-box" style="display: none;">
+          <div class="empty-icon">
+            <i data-lucide="search-x"></i>
+          </div>
+          <h3 class="empty-title">No Events Found</h3>
+          <p class="empty-desc">We couldn't find any events matching your selected filters or search keyword.</p>
+          <button id="reset-empty-filters-btn" class="btn btn-primary">
+            <i data-lucide="rotate-ccw"></i> Reset Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MY REGISTRATIONS SECTION -->
+    <section id="registrations" class="section registrations-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="header-left">
+            <span class="section-pill">
+              <i data-lucide="ticket"></i> Bookings & Passes
+            </span>
+            <h2 class="section-title">My Registered Events</h2>
+            <p class="section-subtitle">
+              View your confirmed reservations, download digital boarding passes, or manage your bookings.
+            </p>
+          </div>
+        </div>
+
+        <!-- Registrations Cards Container -->
+        <div id="registrations-list" class="registrations-grid">
+          <!-- Dynamically populated via RegistrationManager.renderRegistrations() -->
+        </div>
+
+        <!-- Registrations Empty State -->
+        <div id="registrations-empty" class="empty-state-box" style="display: none;">
+          <div class="empty-icon">
+            <i data-lucide="calendar-x-2"></i>
+          </div>
+          <h3 class="empty-title">You Haven't Registered For Any Events Yet</h3>
+          <p class="empty-desc">Explore our curated lineup of technology summits, design masterclasses, and music festivals to reserve your spot.</p>
+          <a href="#explore" class="btn btn-primary">
+            <i data-lucide="compass"></i> Explore Upcoming Events
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text-col">
+            <span class="section-pill">
+              <i data-lucide="heart-handshake"></i> Our Purpose
+            </span>
+            <h2 class="section-title">Making Every Experience Count.</h2>
+            <p class="about-lead">
+              Eventora was created with a single belief: memorable experiences have the power to transform careers, spark lifelong friendships, and inspire profound creative work.
+            </p>
+            <p class="about-body">
+              Whether you are an aspiring engineer diving into state-of-the-art AI architectures, an artist seeking sensory inspiration, or an entrepreneur seeking aligned co-founders, Eventora curates the gatherings where transformative moments occur.
+            </p>
+
+            <div class="about-features-list">
+              <div class="about-feature-item">
+                <div class="feature-icon">
+                  <i data-lucide="check-circle-2"></i>
+                </div>
+                <div>
+                  <strong>Curated Excellence</strong>
+                  <p>Every event is hand-reviewed for speaker quality, safety, and community value.</p>
+                </div>
+              </div>
+              <div class="about-feature-item">
+                <div class="feature-icon">
+                  <i data-lucide="qr-code"></i>
+                </div>
+                <div>
+                  <strong>Instant Digital Passes</strong>
+                  <p>Get immediate barcode passes stored locally on your device with one-click print access.</p>
+                </div>
+              </div>
+              <div class="about-feature-item">
+                <div class="feature-icon">
+                  <i data-lucide="users"></i>
+                </div>
+                <div>
+                  <strong>Real-Time Seat Management</strong>
+                  <p>Transparent live seat availability so you always know when spots are filling up.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual-col">
+            <div class="about-image-card">
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Event Conference Crowd">
+              <div class="about-floating-stat">
+                <div class="stat-big">99.4%</div>
+                <div class="stat-desc">Attendee Satisfaction across 500+ events</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Newsletter -->
+        <div class="footer-brand-col">
+          <a href="#hero" class="brand-logo">
+            <div class="brand-icon">
+              <i data-lucide="sparkles"></i>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">Eventora</span>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Discover. Experience. Connect. The premier discovery platform for world-class conferences, workshops, and gatherings.
+          </p>
+
+          <form id="newsletter-form" class="footer-newsletter">
+            <label for="newsletter-email" class="sr-only">Your email address</label>
+            <input type="email" id="newsletter-email" placeholder="Enter your email for updates..." required>
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#featured">Featured Highlights</a></li>
+            <li><a href="#explore">Explore Directory</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#registrations">My Registrations</a></li>
+            <li><a href="#about">About Eventora</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Categories -->
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#explore" onclick="App.setCategory('Technology')">Technology</a></li>
+            <li><a href="#explore" onclick="App.setCategory('Music')">Music</a></li>
+            <li><a href="#explore" onclick="App.setCategory('Business')">Business</a></li>
+            <li><a href="#explore" onclick="App.setCategory('Workshops')">Workshops</a></li>
+            <li><a href="#explore" onclick="App.setCategory('Sports')">Sports</a></li>
+            <li><a href="#explore" onclick="App.setCategory('Art & Culture')">Art & Culture</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Socials -->
+        <div class="footer-contact-col">
+          <h4 class="footer-heading">Connect With Us</h4>
+          <p class="footer-contact-text">
+            <i data-lucide="mail"></i> hello@eventora.platform
+          </p>
+          <p class="footer-contact-text">
+            <i data-lucide="map-pin"></i> 100 Innovation Blvd, San Francisco, CA
+          </p>
+
+          <div class="footer-social-icons">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <i data-lucide="github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 Eventora Platform. All rights reserved. Built with modern web standards.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <span class="dot">&bull;</span>
+          <a href="#">Terms of Service</a>
+          <span class="dot">&bull;</span>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- MODAL A: EVENT DETAILS MODAL -->
+  <div id="event-details-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn" data-close-modal="event-details-modal" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="event-details-render-target">
+        <!-- Rendered dynamically by App.openEventDetails() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL B: REGISTRATION FORM MODAL -->
+  <div id="registration-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-md">
+      <button class="modal-close-btn" data-close-modal="registration-modal" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-header-icon">
+          <i data-lucide="ticket"></i>
+        </div>
+        <div>
+          <h3 class="modal-title">Event Registration</h3>
+          <p class="modal-subtitle">Reserve your entry pass. Confirmation is saved to your account.</p>
+        </div>
+      </div>
+
+      <form id="registration-form" class="modal-form" novalidate>
+        <!-- Event selection -->
+        <div class="form-group">
+          <label for="reg-event-select" class="form-label">
+            Selected Event <span class="required">*</span>
+          </label>
+          <select id="reg-event-select" class="form-input" required>
+            <!-- Populated dynamically -->
+          </select>
+          <div id="reg-seats-indicator" class="seats-indicator-box"></div>
+          <span id="reg-event-select-error" class="error-msg"></span>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="reg-fullname" class="form-label">
+            Full Name <span class="required">*</span>
+          </label>
+          <input type="text" id="reg-fullname" class="form-input" placeholder="e.g. Alex Mercer" required>
+          <span id="reg-fullname-error" class="error-msg"></span>
+        </div>
+
+        <!-- Email & Phone Grid -->
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="reg-email" class="form-label">
+              Email Address <span class="required">*</span>
+            </label>
+            <input type="email" id="reg-email" class="form-input" placeholder="alex@example.com" required>
+            <span id="reg-email-error" class="error-msg"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-phone" class="form-label">
+              Phone Number <span class="required">*</span>
+            </label>
+            <input type="tel" id="reg-phone" class="form-input" placeholder="+1 (555) 000-0000" required>
+            <span id="reg-phone-error" class="error-msg"></span>
+          </div>
+        </div>
+
+        <!-- Ticket Quantity -->
+        <div class="form-group">
+          <label for="reg-tickets" class="form-label">
+            Number of Tickets
+          </label>
+          <select id="reg-tickets" class="form-input">
+            <option value="1">1 Ticket</option>
+            <option value="2">2 Tickets</option>
+            <option value="3">3 Tickets</option>
+            <option value="4">4 Tickets</option>
+            <option value="5">5 Tickets</option>
+          </select>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="form-group">
+          <label for="reg-notes" class="form-label">
+            Special Requests / Dietary Requirements <span class="optional">(Optional)</span>
+          </label>
+          <input type="text" id="reg-notes" class="form-input" placeholder="e.g. Wheelchair access, vegetarian meal">
+        </div>
+
+        <!-- Live Price Calculation Box -->
+        <div id="reg-price-summary" class="price-summary-box">
+          <!-- Populated dynamically via RegistrationManager.updatePriceCalculation() -->
+        </div>
+
+        <div class="modal-footer-actions">
+          <button type="button" class="btn btn-ghost" data-close-modal="registration-modal">
+            Cancel
+          </button>
+          <button type="submit" id="submit-registration-btn" class="btn btn-primary">
+            <i data-lucide="check"></i> Confirm Registration
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL C: DIGITAL E-TICKET CONFIRMATION -->
+  <div id="ticket-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-md">
+      <button class="modal-close-btn" data-close-modal="ticket-modal" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-header-icon success-icon">
+          <i data-lucide="check-circle-2"></i>
+        </div>
+        <div>
+          <h3 class="modal-title">Registration Confirmed!</h3>
+          <p class="modal-subtitle">Your digital pass is generated and saved to your account.</p>
+        </div>
+      </div>
+
+      <!-- Ticket Canvas -->
+      <div id="ticket-render-target">
+        <!-- Rendered by RegistrationManager.renderDigitalTicket() -->
+      </div>
+
+      <div class="modal-footer-actions">
+        <button id="print-ticket-btn" class="btn btn-outline">
+          <i data-lucide="printer"></i> Print / Save Pass
+        </button>
+        <button class="btn btn-primary" data-close-modal="ticket-modal">
+          <i data-lucide="check"></i> Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL D: CANCEL CONFIRMATION DIALOG -->
+  <div id="cancel-confirm-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <div class="modal-header-icon danger-icon">
+          <i data-lucide="alert-triangle"></i>
+        </div>
+        <div>
+          <h3 class="modal-title">Cancel Registration</h3>
+          <p class="modal-subtitle">Are you sure you want to cancel this booking?</p>
+        </div>
+      </div>
+
+      <div id="cancel-event-info" class="cancel-info-card">
+        <!-- Populated dynamically -->
+      </div>
+
+      <p class="cancel-warning-note">
+        Your reserved seat(s) will be released back to other attendees immediately.
+      </p>
+
+      <div class="modal-footer-actions">
+        <button id="dismiss-cancel-btn" class="btn btn-ghost">
+          Keep My Pass
+        </button>
+        <button id="confirm-cancel-btn" class="btn btn-danger">
+          Yes, Cancel Booking
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL E: HOST AN EVENT PARTNER MODAL -->
+  <div id="host-event-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-md">
+      <button class="modal-close-btn" data-close-modal="host-event-modal" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-header-icon">
+          <i data-lucide="calendar-plus"></i>
+        </div>
+        <div>
+          <h3 class="modal-title">Host an Event on Eventora</h3>
+          <p class="modal-subtitle">Partner with our platform to reach over 45,000+ enthusiastic attendees.</p>
+        </div>
+      </div>
+
+      <form id="host-event-form" class="modal-form">
+        <div class="form-group">
+          <label for="host-event-title" class="form-label">
+            Event Name <span class="required">*</span>
+          </label>
+          <input type="text" id="host-event-title" class="form-input" placeholder="e.g. Autonomous AI Hackathon 2027" required>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="host-event-category" class="form-label">Category</label>
+            <select id="host-event-category" class="form-input">
+              <option value="Technology">Technology</option>
+              <option value="Music">Music</option>
+              <option value="Business">Business</option>
+              <option value="Workshops">Workshops</option>
+              <option value="Sports">Sports</option>
+              <option value="Art & Culture">Art & Culture</option>
+              <option value="Education">Education</option>
+              <option value="Networking">Networking</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="host-org-name" class="form-label">
+              Organizer / Organization <span class="required">*</span>
+            </label>
+            <input type="text" id="host-org-name" class="form-input" placeholder="e.g. Apex Labs" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="host-org-email" class="form-label">
+            Contact Email <span class="required">*</span>
+          </label>
+          <input type="email" id="host-org-email" class="form-input" placeholder="partners@apexlabs.io" required>
+        </div>
+
+        <div class="form-group">
+          <label for="host-event-desc" class="form-label">Short Description / Estimated Attendees</label>
+          <textarea id="host-event-desc" class="form-input form-textarea" rows="3" placeholder="Tell us about the event concept, expected venue, and estimated attendance..."></textarea>
+        </div>
+
+        <div class="modal-footer-actions">
+          <button type="button" class="btn btn-ghost" data-close-modal="host-event-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            <i data-lucide="send"></i> Submit Partnership Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Scroll to top">
+    <i data-lucide="chevron-up"></i>
+  </button>
+
+  <!-- Application Scripts -->
+  <script src="js/events.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/registration.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
